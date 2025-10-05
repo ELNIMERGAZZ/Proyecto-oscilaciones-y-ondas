@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Osciloscopio Lissajous - p5.js + Audio</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+  <script src="sketch.js"></script>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: monospace;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    canvas {
+      border: 1px solid #0f0;
+      margin-top: 15px;
+    }
+
+    .controls {
+      margin-top: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #0f0;
+      font-size: 13px;
+    }
+
+    input[type="range"] {
+      width: 160px;
+      accent-color: #0f0;
+    }
+
+    .value {
+      margin-top: 5px;
+      font-weight: bold;
+      color: #9f9;
+    }
+
+    .buttons {
+      margin-top: 15px;
+    }
+
+    button {
+      background: #0f0;
+      color: #000;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 5px;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #6f6;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Osciloscopio de dos canales – Figuras de Lissajous</h2>
+ 
+
+  <div class="controls">
+    <label>
+      Amplitud X (A₁)
+      <input id="A1" type="range" min="0" max="1" step="0.01" value="0.5" />
+      <span id="A1Val" class="value">0.50</span>
+    </label>
+
+    <label>
+      Amplitud Y (A₂)
+      <input id="A2" type="range" min="0" max="1" step="0.01" value="0.5" />
+      <span id="A2Val" class="value">0.50</span>
+    </label>
+
+    <label>
+      Frecuencia X (f₁)
+      <input id="f1" type="range" min="20" max="20000" step="1" value="220" />
+      <span id="f1Val" class="value">220 Hz</span>
+    </label>
+
+    <label>
+      Frecuencia Y (f₂)
+      <input id="f2" type="range" min="20" max="20000" step="1" value="330" />
+      <span id="f2Val" class="value">330 Hz</span>
+    </label>
+
+    <label>
+      Fase φ₁ (°)
+      <input id="phi1" type="range" min="0" max="360" step="1" value="0" />
+      <span id="phi1Val" class="value">0°</span>
+    </label>
+
+    <label>
+      Fase φ₂ (°)
+      <input id="phi2" type="range" min="0" max="360" step="1" value="0" />
+      <span id="phi2Val" class="value">0°</span>
+    </label>
+  </div>
+
+  <div class="buttons">
+    <button id="playBtn">▶ Play / ⏸ Pause</button>
+    <button id="resetBtn">🔁 Reset</button>
+    <button id="modeBtn">🔄 Cambiar modo (Tiempo / XY)</button>
+  </div>
+</body>
+</html>
